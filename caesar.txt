@@ -1,0 +1,23 @@
+def caesar(text):
+    """ Summary:    Caesar shift a string by a given amount
+        Parameters: text - The text to apply the shift to
+        Returns:    A string containing the shifted text
+    """
+    shift = input("Input Shift here>> ")
+    shift = int(shift)
+    strLower = text.lower()
+    strList = []
+
+    for x in strLower:
+
+        strValue = ord(x) #change from str to ascii value of str
+
+        if strValue >= 97 and strValue <=122: #if its in alphabet
+            strShifted = chr((strValue + shift - 97) % 26 + 97 ) #shift it and change it back to a char
+
+        else: strShifted = chr(strValue) # not in alph, reconvert to string
+
+        strList.append(strShifted) # append to list
+        encrypted = "".join(strList) #join into a string
+    return encrypted #return shifted message
+
